@@ -1,0 +1,12 @@
+docker network create elastic
+docker run --name elasticsearch --net elastic -p localhost:9200:9200 -e "discovery.type=single-node" -t docker.elastic.co/elasticsearch/elasticsearch:8.7.0
+
+docker cp elasticsearch.yml elasticsearch:/usr/share/elasticsearch/config/
+# Fix elasticsearch config yml
+
+// iptables rules to limit access to elastic
+sudo iptables -P INPUT DROP
+
+sudo iptables -A INPUT -i lo -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT

@@ -1,0 +1,12 @@
+services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    networks:
+      - elastic
+    ports:
+      - 80:80
+networks:
+  elastic:
+    name: elastic
+    external: true

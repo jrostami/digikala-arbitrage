@@ -1,0 +1,14 @@
+Flask==2.2.2
+gunicorn
+psycopg2-binary
+scikit-learn
+scipy
+matplotlib
+keras_applications
+tensorflow-macos==2.12.0
+keras
+numpy
+flask
+apiFlask
+pyyaml
+Werkzeug==2.2.2

@@ -1,0 +1,86 @@
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  #config:
+    #import: file:/app/config/application-search.yaml
+  servlet:
+    multipart:
+      max-file-size: 12MB
+      max-request-size: 12MB
+elasticsearch:
+  host: localhost
+  port: 9200
+  protocol: http
+  username:
+  password:
+  #password: jAyW=mN7F5iEOZV_VEt=
+server:
+  servlet:
+    context-path: /api
+
+accessKey:
+  upload: yy7s39X2wQhqxYtp8euO
+similarity:
+  serverUrl: http://localhost:5000/
+  imageMatchThreshold: 50
+  textMatchThreshold: 75
+  type: URL
+  useCache: true
+  matchThreadPoolSize: 6
+  weightMax: 4530
+  heightMax: 203.2
+  widthMax: 355.6
+  lengthMax: 457.2
+  matchThreshold: 65
+  resultPerProduct: 1
+  exactMatch: 98
+file:
+  downloadPathBase: "folder/"
+  downloadTries: 5
+
+digikala:
+  productSearchUrl: "https://api.digikala.com/v1/search/?q="
+  productDetailUrl: "https://api.digikala.com/v2/product/"
+
+ollama:
+  model: "llama3:instruct"
+  generateUrl: "http://localhost:11434/api/generate"
+  embeddingUrl: "http://localhost:11434/api/embeddings"
+  similarityPrompt2: "I have one source product title in Persian, 
+    along with its product ID, and a list of 10 destination product titles,
+    each with their own product IDs. 
+    I need to determine if any of the destination titles represent the same product variation as the source title based on the model number.
+    The model number may be written in Persian numerals or Latin characters.
+    The model numbers must match exactly for the products to be considered the same variation. 
+    If there is any difference in the model numbers, they should be considered different products.
+    Please extract the model number from the source title and compare it with the model numbers from each destination title.
+    The output should include the product IDs, the extracted model numbers, 
+    and indicate whether each destination title is the same product as the source. 
+    Source Product: 
+    ID: %s, Title: '%s'. 
+    Destination Products:
+     
+    %s. 
+    The output should be in JSON format with the following structure: 
+    { \"matches\": [ { \"dstProductId\": \"int\", \"dstProductTitle\": \"string\", \"sameProduct\": bool, \"srcProductId\": \"int\", \"srcModelNumber\": \"string\", \"dstModelNumber\": \"string\" } ] }"
+  similarityPrompt: "Please forget the previous conversation history. I have two product titles in Persian, and I need to determine if they represent the same product variation based on the model number. The model number may be written in Persian numerals or Latin characters. The model numbers must match exactly for the products to be considered the same variation. If there is any difference in the model numbers, they should be considered different products.
+
+    Please extract the model numbers from the following two product titles and check if they are the same:
+
+    Product 1: '%s'
+    Product 2: '%s'
+    The output should be in JSON format with the following structure:
+      {
+        'sameProduct': bool,
+        'p1ModelNumber': 'string',
+        'p2ModelNumber': 'string'
+    }"
+
+crawl:
+  listUrl: http://localhost:5001/list
+

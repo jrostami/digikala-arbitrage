@@ -1,0 +1,21 @@
+
+services:
+  match:
+    container_name: image-similarity
+    image: python:3.10.11-slim-buster
+    volumes:
+      - ~/work/image-similarity:/app
+      - ~/work/search/files:/files
+    networks:
+      - elastic
+    command: 'bash /app/run.sh'
+    ports:
+      - '5000:5000'
+    mem_reservation: 10M
+
+    mem_limit: 5000M
+    restart: always
+networks:
+  elastic:
+    name: elastic
+    external: true

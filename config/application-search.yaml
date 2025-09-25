@@ -1,0 +1,16 @@
+elasticsearch:
+  host: 199.244.49.112
+  port: 9200
+  protocol: http
+  username: elastic
+  password: GjTV3qcFpxs*b+qzMWNw
+
+similarity:
+  serverUrl: http://image-similarity:5000/
+  imageMatchThreshold: 70
+  textMatchThreshold: 70
+
+file:
+  downloadPathBase: "/app/files/"
+  downloadTries: 5
+
