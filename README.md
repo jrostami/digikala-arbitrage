@@ -81,12 +81,6 @@ for new opportunities.
 
 ------------------------------------------------------------------------
 
-## Pricing Model
-
--   **Token-based usage:** Each operation consumes a certain number of
-    tokens.\
--   Users receive free tokens for initial testing.
-
 ------------------------------------------------------------------------
 
 ## Risks
@@ -96,13 +90,3 @@ for new opportunities.
 -   Shipping cost miscalculations.
 
 ------------------------------------------------------------------------
-
-## Roadmap
-
--   Invite major suppliers to directly list their products.\
--   AI-driven automatic site addition (no manual CSS selector setup).\
--   Context-aware product matching per category.\
--   Consider liquidity, sales volume, and other KPIs beyond profit.\
--   Auto-generated seller lists based on saved searches.\
--   Ranking and scoring suppliers based on reliability.\
--   More accurate cost calculations and global product matching.
